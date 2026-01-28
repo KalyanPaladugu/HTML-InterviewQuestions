@@ -54,3 +54,9 @@ Syntax:
 <span style="color: red;">This is inline</span>
 ```
 
+#### How to make download option using HTML
++ We can achieve this by using element **<a>** and the attribute **download**
+```html
+<a href="file_name_to_download.pdf" download>  Download the file </a>
+```
+
