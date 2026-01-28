@@ -53,4 +53,26 @@ Syntax:
 <!-- Inline element: fits content -->
 <span style="color: red;">This is inline</span>
 ```
++ Difference between `id` and `class`
 
+```
+<p id="uniqueParagraph">This has a unique ID</p>
+<p class="highlight">This has a reusable class</p>
+<p class="highlight">Another element with same class</p>
+```
+- Difference between `<strong>`  and `<b>` and difference between `<em>` and `<I>`
+
+    + Prefer `<strong>` and `<em>` when the text carries meaningful emphasis. Use `<b>` and `<b>` only for purely visual styling.
+
+- local storage vs sessionStorage
+
+```
+<script>
+  // Persists even after closing browser
+  localStorage.setItem("user", "Alice");
+
+  // Clears when tab is closed
+  sessionStorage.setItem("sessionUser", "Bob");
+</script>
+
+```
