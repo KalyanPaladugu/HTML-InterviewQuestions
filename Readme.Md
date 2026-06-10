@@ -143,3 +143,79 @@ Content-Security-Policy: default-src 'self'; script-src 'self' https://trustedsc
 
 4. Use `HttpOnly` Cookies for Session Tokens
 - If your website uses cookies to keep users logged in, always set the HttpOnly flag on those cookies. This instructs the browser that the cookie should never be accessible via JavaScript (document.cookie), effectively neutralizing an attacker's ability to steal session IDs via XSS.
+
+#### WCAG(Web Content Accessibility Guidelines)-2.1&2.2
+
+Step 1: Catch the Quick Wins (Automated Testing)
+- Automated tools can instantly catch about 40–50% of your accessibility bugs (like missing tags or bad color contrast). Start by running these:
+
+- Lighthouse / Axe DevTools: Open your browser's developer tools, run an accessibility audit, and it will give you a literal checklist of what to fix in your code.
+
+- WAVE (Web Accessibility Evaluation Tool): A browser extension that overlays visual indicators directly onto your webpage, showing exactly where headings are broken or where form labels are missing.
+
+Step 2: Implement Core Technical Fixes
+ 
+1. Use Semantic HTML (Instead of Generic Divs)
+- Assistive technologies like screen readers rely on HTML tags to understand what a page element actually does.
+- Stop doing this: `<div class="nav-button" onclick="submit()">Submit</div>`
+- Do this instead: `<button onclick="submit()">Submit</button>`
+- By using a native `<button>` or `<a>` tag, the browser automatically builds keyboard support, focus states, and screen reader roles for you for free.
+
+2. Ensure Full Keyboard Navigation
+- A core requirement of WCAG is that a user must be able to interact with your site using only a keyboard.
+
+- Focus Indicators: Never use CSS to hide the outline of an item when a user tabs onto it (outline: none). If a user can't see which button is currently highlighted, they are digitally trapped.
+
+- Tab Order: Ensure the navigation flows logically from top-to-bottom, left-to-right.
+
+- Skip Links: Add a hidden "Skip to main content" link at the very top of your HTML page. This allows keyboard users to skip past massive navigation headers straight to the main article.
+
+3. Fix Forms and Labels
+- Form fields without explicit text labels are completely blank to a blind user.
+```
+<!-- ❌ BAD: A screen reader just hears "Input field, blank" -->
+<input type="text" placeholder="Search...">
+
+<!-- ✅ GOOD: The label is programmatically tied to the input -->
+<label for="search-box">Search the site</label>
+<input type="text" id="search-box">
+```
+
+4. Upgrade Contrast and Media SafelyColor Contrast: 
+- Ensure text has a contrast ratio of at least `$4.5:1$` against its background (`$3:1$` for large text). Use tools like Adobe Color or WebAIM Contrast Checker to verify your palette.
+- Alt Text: Give every informative image an alt description. If an image is purely decorative (like a background pattern), give it an empty alt attribute (alt="") so screen readers intentionally skip it.
+
+##### ARIA stands for Accessible Rich Internet Applications.
+- It is a set of special HTML attributes created by the W3C that you add to your markup to provide extra context to assistive technologies—like screen readers.
+- Before diving in, there is an absolute rule in web development: No ARIA is better than Bad ARIA.
+
+- Whenever possible, you should use Semantic HTML tags (like `<button>`, `<nav>`, or `<dialog>`) because they have accessibility built in by default. You should only use ARIA attributes when native HTML cannot do the job—such as when you are building complex, custom UI widgets (like accordions, tab menus, or custom sliders) using generic `<div>` elements.
+
+1. ARIA Roles
+- An ARIA role tells a screen reader what an element is or does, especially when generic HTML is used. Think of it as giving an identity to a nameless element.
+
+Example: Making a custom toggle switch
+If you style a `<div>` to look like a button or switch, a blind user will hear nothing but "clickable text" or "group". Adding a role fixes this.
+```
+<!-- ❌ BAD: Screen reader has no idea this functions as a checkbox -->
+<div class="custom-checkbox" onclick="toggle()"></div>
+
+<!-- ✅ GOOD: The role announces it properly -->
+<div role="checkbox" aria-checked="false" class="custom-checkbox" onclick="toggle()"></div>
+```
+- Common Categories of Roles
+    - Landmark Roles: Help users navigate zones of a page (e.g., role="search", role="banner" for headers, role="main"). Note: Native tags like `<main>` and `<search>` handle this automatically now.
+
+    - Widget Roles: Give functional meaning to standalone UI components (e.g., role="tooltip", role="dialog" for modals, role="tablist").
+
+2. ARIA States & Properties (The Interactive Layer)
+
+A. States (Things that change frequently)
+- `aria-expanded="true/false"`: Tells a user if a dropdown or accordion is open or closed.
+
+- `aria-hidden="true/false"`: Tells the screen reader to completely ignore an element (great for hiding decorative background icons).
+
+B. Properties (Characteristics unlikely to change)
+`aria-label`: Gives an element an explicit text announcement when there's no visible text on the screen.
+
+`aria-describedby`: Links an element to another element that contains an explanation or error message for it.
