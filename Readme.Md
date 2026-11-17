@@ -84,8 +84,7 @@ Correct above program for closure concept
 To demonstrate the closure concept in JavaScript, you need to return the inner function's result from the outer function.
 
 Corrected program
-
-javascript
+```
 function demo() {
     let name = "ddd";
 
@@ -97,18 +96,18 @@ function demo() {
 }
 
 console.log(demo()); // Output: ddd
+```
 How closure works
-demo() creates a local variable name with the value "ddd".
+-----------------
 
-demo1() is an inner function that accesses the outer function's variable name.
+- demo() creates a local variable name with the value "ddd".
+- demo1() is an inner function that accesses the outer function's variable name.
+- return demo1() returns the result of the inner function.
+- console.log(demo()) prints "ddd".
 
-return demo1() returns the result of the inner function.
+- A better example to understand closures
 
-console.log(demo()) prints "ddd".
-
-A better example to understand closures
-
-javascript
+```
 function demo() {
     let name = "ddd";
 
@@ -122,22 +121,23 @@ function demo() {
 let result = demo();
 
 console.log(result()); // ddd
+```
+
 Important difference:
 
-return demo1() → Returns the result of executing the inner function.
+- return demo1() → Returns the result of executing the inner function.
+- return demo1 → Returns the inner function itself.
+- The second example demonstrates closure more clearly because the inner function is returned and can still access the outer function's variable even after the outer function has finished executing.
 
-return demo1 → Returns the inner function itself.
-
-The second example demonstrates closure more clearly because the inner function is returned and can still access the outer function's variable even after the outer function has finished executing.
-
-
-Get better writing help
-Log in for more personalized help with writing, rewriting, and translation.
+- Get better writing help
+- Log in for more personalized help with writing, rewriting, and translation.
 
 
 Log in
+------
 
-Sign up for free
+- Sign up for free
+```
 function demo(str){
    let freq={};
    for(let i of str){
@@ -157,8 +157,8 @@ function demo(str){
 let str="asfassafasfASkfglh"
 
 console.log(demo(str))explain logic
-
-Your program counts how many times each character appears in a string. This is called Character Frequency Counter in JavaScript.
+```
+- Your program counts how many times each character appears in a string. This is called Character Frequency Counter in JavaScript.
 
 Let's understand it step by step.
 
