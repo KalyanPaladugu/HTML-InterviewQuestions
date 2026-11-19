@@ -195,3 +195,45 @@ Important difference:
 - `required` checks whether the user entered a value.
 - `pattern` checks whether the entered value matches a specified regular expression.
 - `type="email"` checks basic email format.
+
+- upload and download file
+```
+<!-- Upload -->
+<input type="file" />
+
+<!-- Download -->
+<a href="sample.pdf" download>
+  Download File
+</a>
+```
+- Upload only images
+```
+<label>Upload Profile Image:</label>
+
+<input
+  type="file"
+  accept="image/*"
+/>
+```
+
+- Upload multiple files
+```
+<label>Upload Documents:</label>
+
+<input
+  type="file"
+  multiple
+/>
+```
+- Audio element
+```
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg" />
+</audio>
+```
+- Video example:
+```
+<video width="400" controls>
+  <source src="video.mp4" type="video/mp4" />
+</video>
+```
