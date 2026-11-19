@@ -177,7 +177,21 @@ Important difference:
 - In HTML, we can validate form elements using HTML5 built-in form validation attributes without writing JavaScript.
 - HTML provides attributes like `required`, `minlength`, `maxlength`, `pattern`, `min`, `max`, and `type`.
 
-![Form-Validation-attribute](/images/form-validation-attribute.png)
+##### Important HTML validation attributes
+
+| Attribute | Purpose | Example |
+| :--- | :--- | :--- |
+| `required` | Field must be filled | `required` |
+| `minlength` | Minimum characters | `minlength="3"` |
+| `maxlength` | Maximum characters | `maxlength="20"` |
+| `min` | Minimum numeric value | `min="18"` |
+| `max` | Maximum numeric value | `max="60"` |
+| `pattern` | Validate using regex | `pattern="[0-9]{10}"` |
+| `type="email"` | Validate email format | `type="email"` |
+| `type="url"` | Validate URL format | `type="url"` |
+| `step` | Allowed numeric increments | `step="2"` |
+
+
 - `required` checks whether the user entered a value.
 - `pattern` checks whether the entered value matches a specified regular expression.
 - `type="email"` checks basic email format.
