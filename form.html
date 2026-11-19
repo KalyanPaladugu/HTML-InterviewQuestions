@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form>
+
+    <!-- Name validation -->
+    <label>Name:</label>
+    <input
+      type="text"
+      name="username"
+      required
+      minlength="3"
+      maxlength="20"
+    />
+
+    <br /><br />
+
+    <!-- Email validation -->
+    <label>Email:</label>
+    <input
+      type="email"
+      name="email"
+      required
+    />
+
+    <br /><br />
+
+    <!-- Password validation -->
+    <label>Password:</label>
+    <input
+      type="password"
+      name="password"
+      required
+      minlength="8"
+    />
+
+    <br /><br />
+
+    <!-- Age validation -->
+    <label>Age:</label>
+    <input
+      type="number"
+      name="age"
+      min="18"
+      max="60"
+      required
+    />
+
+    <br /><br />
+
+    <!-- Phone validation -->
+    <label>Phone:</label>
+    <input
+      type="tel"
+      name="phone"
+      pattern="[0-9]{10}"
+      required
+      title="Enter a 10-digit phone number"
+    />
+
+    <br /><br />
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+</body>
+</html>

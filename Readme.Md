@@ -171,3 +171,13 @@ Important difference:
 
 - Website content should work with different browsers and assistive technologies.
 - Example: Use proper HTML elements and semantic tags.
+
+##### Validate form elements
+
+- In HTML, we can validate form elements using HTML5 built-in form validation attributes without writing JavaScript.
+- HTML provides attributes like `required`, `minlength`, `maxlength`, `pattern`, `min`, `max`, and `type`.
+
+![Form-Validation-attribute](/images/form-validation-attribute.png)
+- `required` checks whether the user entered a value.
+- `pattern` checks whether the entered value matches a specified regular expression.
+- `type="email"` checks basic email format.
